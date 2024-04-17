@@ -2,17 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-
 const app = express();
-
 app.use(cors());
 
 const mediaRoutes = require("./routes/media");
 
 app.use("/api/v1/media", mediaRoutes);
-app.use("/public", express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname,   "public")));
 
-const mongodbUri = "mongodb://localhost:27017/uploadproject";
+const mongodbUri =   "mongodb+srv://ARUN:1234@cluster0.mmyigrp.mongodb.net/LECTURESCHECK?retryWrites=true&w=majority&appName=Cluster0";
+
+// const mongodbUri = "mongodb://localhost:27017/uploadproject";
 
 mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
