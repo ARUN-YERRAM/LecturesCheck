@@ -5,7 +5,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import FileUpload from './FileUpload';
-import "./sidebar.css";
+import "./Sidebar.css";
 
 
 const Sidebar = () => {
