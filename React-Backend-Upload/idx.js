@@ -9,13 +9,14 @@ dotenv.config();
 
 app.use(express.json());
 
-app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+app.use(cors({credentials:true, origin:'http://localhost:5000'}));
 
 app.use("/api",allroutes);
 app.use((req,res)=>{
     console.log("Request received at"+(new Date()));
     res.send("wellcome to dune university");
 });
+
 
 let db = async()=>
 {
@@ -32,5 +33,6 @@ let db = async()=>
 }
 db();
 
-
 app.listen(5000,()=>{console.log("Backend server listening at port http://localhost:5000")});
+
+

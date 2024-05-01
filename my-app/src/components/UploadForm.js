@@ -82,7 +82,8 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-
+import "./css/Uploadvideo.css";
+// import { BACKEND_URI } from "../config/constants";
 const BACKEND_URI = "http://localhost:4000";
 
 const UploadForm = ({ getAllMedias }) => {
@@ -112,8 +113,9 @@ const UploadForm = ({ getAllMedias }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <div className="uploadvideo">
+      <form className="videoform" onSubmit={handleSubmit}>
+        
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -122,8 +124,8 @@ const UploadForm = ({ getAllMedias }) => {
             className="form-control"
             onChange={(e) => setName(e.target.value)}
           />
-        </div>
-        <div className="form-group">
+        
+        
           <label htmlFor="videos">Upload Videos</label>
           <input
             type="file"
@@ -136,12 +138,17 @@ const UploadForm = ({ getAllMedias }) => {
               setVideos(e.target.files);
             }}
           />
-        </div>
+        
 
         <button type="submit" className="btn btn-primary mt-2">
           Submit
         </button>
       </form>
+
+
+      </div>
+
+
     </>
   );
 };

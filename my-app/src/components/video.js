@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import App1 from "../App1";
 function Video() {
   const [title, setTitle] = useState('');
   const [file, setVideo] = useState('');
@@ -9,10 +11,11 @@ function Video() {
   useEffect(() => {
     fetchVideos();
   }, []);
+  
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get-videos');
+      const response = await axios.get('http://localhost:4000/get-videos');
       console.log(response.data.data);
       setAllVideos(response.data.data);
     } catch (error) {
@@ -27,7 +30,7 @@ function Video() {
     formData.append('video', file);
     console.log(title,file);
     try {
-      const response = await axios.post('http://localhost:5000/upload-videos', formData, {
+      const response = await axios.post('http://localhost:4000/upload-videos', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       console.log(response.data);
@@ -41,14 +44,16 @@ function Video() {
   };
 
   // const showVideo = (pdf) => {
-  //   window.open(`http://localhost:5000/videos/${pdf}`, "_blank", "noreferrer");
+    // window.open(`http://localhost:5000/videos/${pdf}`, "_blank", "noreferrer");
   // };
 
 
   return (
     <>
+    <Navbar/>
+    <Sidebar/>
       <div className="App">
-      <form className="formStyle" onSubmit={submitVideo}>
+      {/* <form className="formStyle" onSubmit={submitVideo}>
         <h4>Upload VIDEO</h4>
         <br />
         <input
@@ -74,7 +79,7 @@ function Video() {
           Submit
         </button>
 
-      </form>
+      </form> */}
 
       <div className="uploaded">
         <h4>Uploaded Videos:</h4>
@@ -85,7 +90,7 @@ function Video() {
             <div className="inner-div">
               <h6>Title: {video.title}</h6>
               <video width="320" height="240" controls>
-                <source src={`http://localhost:5000/videos/${video.filename}`} type="video/mp4" />
+                <source src={`http://localhost:4000/videos/${video.filename}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -94,6 +99,9 @@ function Video() {
         </div>
        </div>
       </div>
+
+
+      <App1/>
     </>
   );
 }

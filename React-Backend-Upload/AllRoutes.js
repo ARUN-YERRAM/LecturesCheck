@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const stripe = require('stripe')('sk_test_51OyWO6SJGEZiRddbJFJoHBmjW01s9nmVgYhNQjzrkbyNK009QZV5yE3OHNnnwe5yOHChfTXBvg2lTlNp0FHdeiU7005IyYjaA2');
 allroutes.get('/', (req, res) => {
     console.log(" reached root");
-    res.send("wellcome to dune lms");
+    res.send("welcome to dune lms");
 });
 
 allroutes.post('/login', async (req, res) => {
@@ -20,7 +20,7 @@ allroutes.post('/login', async (req, res) => {
         const user = await User.findOne({ username });
         if (!user) {
             
-            console.log("ivalid username");
+            console.log("invalid username");
             
             return res.status(400).json({ message: 'Invalid username or password' });
         }
@@ -31,7 +31,7 @@ allroutes.post('/login', async (req, res) => {
             
             return res.status(400).json({ message: 'Invalid username or password' });
         }
-        console.log("login is succefull")
+        console.log("login is successful")
         return res.status(200).json({ message: 'Login successful' });
     } catch (error) {
         console.error(error);

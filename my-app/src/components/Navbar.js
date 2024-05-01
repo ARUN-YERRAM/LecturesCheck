@@ -31,7 +31,7 @@ return (
     <a className="navbar-brand " href="#" style={{ color: customSecondaryColor }}>
         <img src="/dune.jpg" alt="" width="50" height="40" className="d-inline-block align-text-top " />
         <br></br>
-        Dune state University
+        LECTURESCHECK
     </a>
     {/* <p className="navbar-brand fst-italic fs-3 ms-2">LecturesCheck</p> */}
     {/* </Link> */}

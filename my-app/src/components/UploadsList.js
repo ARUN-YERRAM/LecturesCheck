@@ -5,8 +5,14 @@ const UploadsList = ({ medias }) => {
   const BACKEND_URI = "http://localhost:4000";  
   return (
     <div className="row">
-      <div className="col-md-10">
-        <table className="table table-bordered">
+      <div className="col-md-12">
+        <table className="table table-bordered" style={{
+          height: 'auto',
+          width:"800px",
+          margin:"40px",
+          marginLeft:"250px",
+          border:"1px solid black",
+        }}>
           <thead>
             <tr>
               <th width="200">Name</th>

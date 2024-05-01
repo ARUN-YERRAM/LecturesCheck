@@ -1,7 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 const About = () => {
   return (
+    <>
+      <Navbar/>
+      <Sidebar/>
     <div className="about-container">
       <h2 className="about-header">About Lecture Material Analysis System</h2>
       <div className="about-content">
@@ -20,6 +25,8 @@ const About = () => {
         <p>At LMAS, our mission is to revolutionize the educational landscape by providing cutting-edge tools for content analysis and enhancement. By empowering educators with actionable insights and fostering student engagement, we aim to create a dynamic learning environment conducive to academic success and lifelong learning.</p>
       </div>
     </div>
+
+    </>
   );
 };
 

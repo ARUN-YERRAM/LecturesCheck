@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import "./css/Uploadpdf.css";
+
 
 function FileUpload() {
   const [title, setTitle] = useState("");
@@ -11,6 +15,7 @@ function FileUpload() {
   useEffect(() => {
     getPdf();
   }, []);
+  
   const getPdf = async () => {
     const result = await axios.get("http://localhost:5000/get-files");
     console.log(result.data.data);
@@ -46,10 +51,15 @@ function FileUpload() {
 
   return (
     <>
-    <div className="App">
-      <form className="formStyle" onSubmit={submitImage}>
+    <Navbar/>
+    <Sidebar/>
+    
+    <div className="uploadpdf">
+      <form className="pdfform" onSubmit={submitImage}>
         <h4>Upload Pdf</h4>
         <br />
+        {/* <div className = "form-group"> */}
+        
         <input
           type="text"
           className="form-control"
@@ -57,6 +67,8 @@ function FileUpload() {
           required    
           onChange={(e) => setTitle(e.target.value)}
         />
+
+    {/* </div> */}
 
         <br />
         <input
@@ -73,6 +85,7 @@ function FileUpload() {
          </button>
 
       </form>
+
 
       <div className="uploaded">
         <h4>Uploaded PDF:</h4>

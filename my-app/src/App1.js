@@ -5,9 +5,10 @@ import UploadForm from "./components/UploadForm";
 import UploadsList from "./components/UploadsList";
 // import { BACKEND_URI } from "../config/constants";
 const BACKEND_URI = "http://localhost:4000";
+
 const App1 = () => {
   const [medias, setMedias] = useState([]);
-
+  console.log(`${BACKEND_URI}/api/v1/media/all`)
   useEffect(() => {
     getAllMedias();
   }, []);
@@ -27,7 +28,9 @@ const App1 = () => {
 
   return (
     <>
-      <div className="row">
+      <UploadForm getAllMedias={getAllMedias} />
+      <UploadsList medias={medias} />
+      {/* <div className="row">
         <div className="col-md-6">
           <div
             className="card"
@@ -58,7 +61,7 @@ const App1 = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

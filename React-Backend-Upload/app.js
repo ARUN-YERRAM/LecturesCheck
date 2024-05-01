@@ -14,9 +14,10 @@ app.use("/files", express.static("files"));
 const mongoUrl =
   "mongodb+srv://ARUN:1234@cluster0.mmyigrp.mongodb.net/LECTURESCHECK?retryWrites=true&w=majority&appName=Cluster0";
   
+  
 mongoose
   .connect(mongoUrl, {
-    useNewUrlParser: true,
+    // useNewUrlParser: true,
     // useUnifiedTopology: true, // Add this option to avoid deprecation warning
   }) 
   .then(() => {
@@ -70,7 +71,7 @@ app.get("/get-files", async (req, res) => {
     res.send({ status: "ok", data: data });
   });
  } catch (error) {
-    // res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -82,7 +83,7 @@ app.get("/", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("Server Started");
+  console.log("Server Started at 5000");
 });
 
 

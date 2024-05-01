@@ -1,29 +1,20 @@
-import React from 'react'
-// import { Link, useMatch, useResolvedPath } from "react-router-dom"
+// Home.js
 
-const Home = () => {
-  return (
-    <div>
-      <>
-      {/* <CustomLink to="/signup">Signup</CustomLink> */}
-      <h1> Home </h1>
-      </>
-    </div>
-  )
+import React from 'react';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+
+
+function Home() {
+    return (
+        <div>
+            <Navbar/>
+            <Sidebar/>
+            <h2>Welcome to the Home Page</h2>
+            <p>Welcome TO LECTURESCHECK </p>
+        </div>
+    );  
 }
 
 
-
-// function CustomLink({ to, children, ...props }) {
-//   const resolvedPath = useResolvedPath(to)
-//   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-
-//   return (
-//     <li className={isActive ? "active" : ""}>
-//       <Link to={to} {...props}>
-//         {children}
-//       </Link>
-//     </li>
-//   )
-// }
-export default Home
+export default Home;
