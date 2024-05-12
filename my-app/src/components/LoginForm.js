@@ -20,7 +20,7 @@ const LoginForm = () => {
     const handleSubmit = async(event) => {
         event.preventDefault();
         try{
-            const response = await axios.post("http://localhost:5000/api/login",{username,password});
+            const response = await axios.post("http://localhost:5500/api/login",{username,password});
             console.log(response.data);
 
             window.location.href = '/home';

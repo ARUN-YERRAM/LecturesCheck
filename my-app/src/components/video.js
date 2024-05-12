@@ -33,7 +33,7 @@ function Video() {
       const response = await axios.post('http://localhost:4000/upload-videos', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.message === "ok") {
         alert('Uploaded Successfully!!!');
         fetchVideos();
