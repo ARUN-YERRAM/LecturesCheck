@@ -18,7 +18,7 @@ function App() {
 
       <Routes>
         {/* <Route path='/' element={<LoginForm/>}/> */}
-        <Route path='/' element={<Home/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/about' element = {<About/>}/>
         {/* <Route path='/fileUpload' element={<FileUpload/>}/> */}
         {/* <Route path='/videoUpload'  element={<VideoUpload/>}/> */}
