@@ -1,0 +1,31 @@
+Here is a list of the main points from the PDF content:
+
+**Addressing Modes**
+
+* Addressing modes specify rules for interpreting or modifying the address field of an instruction before referencing the operand.
+* There are three types of addressing modes: Implied, Immediate, and Register.
+* Addressing modes provide programming versatility, reduce the number of instructions, and give experienced assembly language programmers flexibility for writing efficient programs.
+
+**Computer Organization and Architecture**
+
+* The control unit of a computer has three major phases: instruction fetch, instruction decode, and execution.
+* There are three types of memory addressing modes: Register Indirect, Auto-increment/Decrement, and Direct Address.
+* The address field of an instruction specifies the address of a memory location that contains the address of the operand.
+
+**Instruction Classification**
+
+* Instructions are classified into three categories: Data Transfer, Data Manipulation, and Program Control.
+* Data Transfer instructions move data from one location to another without changing the data content.
+* Data Manipulation instructions perform operations on data and provide computational capabilities.
+* Program Control instructions control the flow of a program.
+
+**Shift Instructions**
+
+* Shift instructions shift the content of an operand, moving bits to the left or right.
+* Shift instructions may be specified as Logical, Arithmetic, Rotate, or Rotate Through Carry.
+
+**Status Bits**
+
+* The ALU circuit in the CPU has a status register where status bits can be stored for further analysis.
+* The four status bits are: C (carry), S (sign), Z (zero), and V (overflow).
+* The status bits are set or cleared as a result of an operation performed in the ALU.

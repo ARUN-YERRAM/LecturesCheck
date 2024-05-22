@@ -1,0 +1,35 @@
+Here is a summary of the main points from the PDF content:
+
+**Addressing Modes**
+
+* Addressing modes specify a rule for interpreting or modifying the address field of an instruction before the operand is referenced.
+* There are three types of addressing modes: Implied, Immediate, and Register.
+* Addressing modes provide programming versatility, reduce the number of instructions, and give experienced assembly language programmers flexibility for writing efficient programs.
+
+**Instruction Classification**
+
+* Instructions are classified into three categories: Data Transfer, Data Manipulation, and Program Control.
+* Data Transfer instructions move data from one location to another without changing the data content.
+* Data Manipulation instructions perform operations on data and provide computational capabilities.
+* Program Control instructions control the flow of a program.
+
+**Data Transfer & Manipulation**
+
+* Data Transfer instructions include Load, Store, Move, Exchange, Input, Output, Push, and Pop.
+* Data Manipulation instructions include Arithmetic, Logical, and Shift instructions.
+* Arithmetic instructions include Increment, Decrement, Add, Subtract, Multiply, Divide, and Negate.
+* Logical instructions include Clear, Complement, AND, OR, Exclusive-Or, Clear Carry, Set Carry, and Complement Carry.
+* Shift instructions include Logical Shift Right, Logical Shift Left, Arithmetic Shift Right, Arithmetic Shift Left, Rotate Right, Rotate Left, Rotate Right through Carry, and Rotate Left through Carry.
+
+**Status Bits**
+
+* The ALU circuit in the CPU has a status register where status bits can be stored for further analysis.
+* The four status bits are: C (carry), S (sign), Z (zero), and V (overflow).
+* The status bits are set or cleared as a result of an operation performed in the ALU.
+
+**Computer Organization and Architecture**
+
+* The control unit of a computer has three major phases: instruction fetch, instruction decode, and execution.
+* There are three types of memory addressing modes: Register Indirect, Auto-increment/Decrement, and Direct Address.
+* The instruction specifies the operation to be performed, and the addressing mode determines how the operand is addressed.
+* The addressing mode can be register-based, memory-based, or a combination of both.
