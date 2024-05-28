@@ -1,0 +1,26 @@
+{
+  "name": "summer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@octoai/client": "^0.5.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "next": "14.2.3",
+    "pdfjs-dist": "^4.2.67",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}

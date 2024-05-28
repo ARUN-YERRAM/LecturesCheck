@@ -1,0 +1,25 @@
+Here is a summary of the main points from the PDF content:
+
+**Exploratory Data Analysis (EDA)**
+
+* EDA is a critical process for discovering patterns, spotting anomalies, testing hypotheses, and checking assumptions using summary statistics and graphical representations.
+* The Toyota dataset contains information about used cars, including price, horsepower, number of kilometers traveled, fuel type, age, automatic transmission, number of doors, metal color, CC, and weight.
+
+**Data Analysis**
+
+* The dataset was imported using pandas and numpy libraries.
+* The `info()` function was used to check the format of each column, revealing that some columns were read incorrectly.
+* The `unique()` function was used to find unique elements in each column, revealing that some columns had been treated as floats or integers instead of categories.
+* The dataset contains missing values in the form of 'nan', '??', and '????', which need to be handled accordingly.
+
+**Data Preprocessing**
+
+* Data preprocessing is a technique used to transform raw data into a useful and efficient format.
+* Steps involved in data preprocessing: data cleaning, data transformation, attribute selection, and data reduction.
+
+**Data Visualization**
+
+* Data visualization is not fully described in this section, but it is mentioned as a topic.
+* Matplotlib's pyplot module aids in plotting figures.
+* Types of plots: line graph/chart, bar graph, histogram, scatter plot.
+* Code example provided using Matplotlib's pyplot module to create a scatter plot.
