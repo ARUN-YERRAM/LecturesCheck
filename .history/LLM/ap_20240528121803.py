@@ -64,7 +64,10 @@ def analyze_data():
         messagebox.showwarning("Input Error", "Please select both files.")
 
 def browse_file(var):
-    filetypes = [("All files", "*.*")]
+    if var.get():
+        filetypes = [("All files", "*.*")]
+    else:
+        filetypes = [("PDF files", "*.pdf"), ("Text files", "*.txt"), ("All files", "*.*")]
     
     filename = filedialog.askopenfilename(filetypes=filetypes)
     var.set(filename)

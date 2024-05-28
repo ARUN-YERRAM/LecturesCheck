@@ -62,13 +62,15 @@ def analyze_data():
             relevance_label.config(text="Error reading files.")
     else:
         messagebox.showwarning("Input Error", "Please select both files.")
-
+        
 def browse_file(var):
-    filetypes = [("All files", "*.*")]
+    if var.get():
+        filetypes = [("All files", "*.*")]
+    else:
+        filetypes = [("PDF files", "*.pdf"), ("Text files", "*.txt"), ("All files", "*.*")]
     
     filename = filedialog.askopenfilename(filetypes=filetypes)
     var.set(filename)
-
 
 def display_charts(relevance_percentage):
     for widget in chart_frame.winfo_children():

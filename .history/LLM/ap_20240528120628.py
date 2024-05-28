@@ -64,11 +64,8 @@ def analyze_data():
         messagebox.showwarning("Input Error", "Please select both files.")
 
 def browse_file(var):
-    filetypes = [("All files", "*.*")]
-    
-    filename = filedialog.askopenfilename(filetypes=filetypes)
+    filename = filedialog.askopenfilename(filetypes=[("Text files", "*.txt"), ("PDF files", "*.pdf")])
     var.set(filename)
-
 
 def display_charts(relevance_percentage):
     for widget in chart_frame.winfo_children():
@@ -184,7 +181,7 @@ file2_button.bind("<Leave>", on_leave)
 relevance_label = ttk.Label(frame, text="Relevance: ", style='TLabel', background="#FFFFFF", foreground="#000000")
 relevance_label.grid(row=2, columnspan=3, pady=(10, 5))
 
-analyze_button = ttk.Button(frame, text="Analyze", command=analyze_data, style='Light .TButton')
+analyze_button = ttk.Button(frame, text="Analyze", command=analyze_data, style='Light.TButton')
 analyze_button.grid(row=3, columnspan=3, pady=(5, 10), sticky=tk.EW)
 analyze_button.bind("<Enter>", on_enter)
 analyze_button.bind("<Leave>", on_leave)
@@ -201,4 +198,3 @@ chart_frame.pack(fill=tk.BOTH, expand=True)
 toggle_dark_mode()
 
 root.mainloop()
-
