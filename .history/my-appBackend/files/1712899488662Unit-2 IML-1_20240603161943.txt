@@ -1,0 +1,58 @@
+Here is a summary of the main points from the PDF content:
+
+**Descriptive Statistics**
+
+* Descriptive statistics describes and summarizes the features of a dataset
+* It is not based on any theory of probability
+* Charts and graphs are often used to present descriptive statistics
+* It helps data analysts understand the data better
+
+**Data**
+
+
+
+* A data set is a collection of related information or records
+* Data is essential for Machine Learning, Artificial Intelligence, and Data Analytics
+* Data can be structured or unstructured (raw data)
+* Each row of a data set is called a record, and each data set has multiple attributes (features, variables, dimensions, or fields)
+
+**Qualitative Data**
+
+* Qualitative data cannot be measured or counted in numbers
+* It is also known as Categorical Data
+* Examples: gender, product quality, etc.
+* Qualitative data tells about people's perceptions, helping market researchers understand customers' tastes and design strategies accordingly
+* Qualitative data is classified into two parts: Nominal Data and Ordinal Data
+
+**Nominal Data**
+
+* Nominal data is used to label variables without any order or quantitative value
+* Numerical tasks cannot be performed on Nominal data
+* Nominal data does not have any meaningful order and is distributed to distinct categories
+* Examples: hair color, etc.
+
+**Types of Data**
+
+* Nominal data: cannot be compared or ordered, examples include marital status, nationality, and gender.
+* Ordinal data: has a natural ordering, examples include feedback systems, ranks, and grading.
+* Quantitative data: relates to the quantity of an object, can be expressed in numerical values, and can be used for statistical analysis.
+
+**Discrete Data**
+
+* Represented by bar graphs, scatter plots, etc.
+* Can only take on specific, distinct values (e.g. integers or whole numbers).
+* Examples: total number of students in a class, number of employees in a company.
+
+**Continuous Data**
+
+* Can take on any value within a range (e.g. decimal or fractional numbers).
+* Can be measured on an infinite scale.
+* Represented by line plots, histogram plots, etc.
+* Examples: height of a person, speed of a vehicle, time taken to finish work.
+
+**Interval Data**
+
+* Numeric data with known order and exact difference between values.
+* Equal intervals between adjacent values.
+* Examples: Celsius temperature, IQ score, income ranges.
+* Limitations: cannot
