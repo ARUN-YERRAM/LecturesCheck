@@ -117,7 +117,7 @@ const UploadVideo = ({ onSubmit }) => {
 
     return (
         <div className="uploadpdf">
-            <h1>hello</h1>
+            <h
             <form className="pdfform" onSubmit={submitImage}>
                 <h4>Upload Video</h4>
                 <label htmlFor="title">Title:</label>
