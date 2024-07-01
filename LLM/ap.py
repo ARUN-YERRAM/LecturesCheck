@@ -162,6 +162,7 @@ file2_var = tk.StringVar()
 file1_label = ttk.Label(frame, text="Select File 1:", background="#FFFFFF", foreground="#000000")
 file1_label.grid(row=0, column=0, sticky=tk.W, pady=(10, 5))
 
+
 file1_entry  = ttk.Entry(frame, textvariable=file1_var, state='readonly')
 file1_entry.grid(row=0, column=1, pady=(10, 5), padx=10, sticky=tk.EW)
 
@@ -189,6 +190,7 @@ analyze_button.grid(row=3, columnspan=3, pady=(5, 10), sticky=tk.EW)
 analyze_button.bind("<Enter>", on_enter)
 analyze_button.bind("<Leave>", on_leave)
 
+
 dark_mode_label = ttk.Label(frame, text="Dark Mode:", style='TLabel', background="#FFFFFF", foreground="#000000")
 dark_mode_label.grid(row=4, column=0, pady=(10, 5))
 
@@ -201,4 +203,6 @@ chart_frame.pack(fill=tk.BOTH, expand=True)
 toggle_dark_mode()
 
 root.mainloop()
+
+
 

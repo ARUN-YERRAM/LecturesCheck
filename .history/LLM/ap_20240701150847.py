@@ -64,8 +64,12 @@ def analyze_data():
         messagebox.showwarning("Input Error", "Please select both files.")
 
 def browse_file(var):
-    filename = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")])  or filedialog.askopenfilename(("Text files", "*.txt") , ("All files", "*.*")])
+    filetypes = [("All files", "*.*")]
+    
+    filename = filedialog.askopenfilename(filetypes=filetypes)
     var.set(filename)
+
+
 def display_charts(relevance_percentage):
     for widget in chart_frame.winfo_children():
         widget.destroy()
@@ -185,6 +189,7 @@ analyze_button.grid(row=3, columnspan=3, pady=(5, 10), sticky=tk.EW)
 analyze_button.bind("<Enter>", on_enter)
 analyze_button.bind("<Leave>", on_leave)
 
+
 dark_mode_label = ttk.Label(frame, text="Dark Mode:", style='TLabel', background="#FFFFFF", foreground="#000000")
 dark_mode_label.grid(row=4, column=0, pady=(10, 5))
 
@@ -197,4 +202,6 @@ chart_frame.pack(fill=tk.BOTH, expand=True)
 toggle_dark_mode()
 
 root.mainloop()
+
+
 

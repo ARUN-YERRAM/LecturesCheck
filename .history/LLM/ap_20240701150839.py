@@ -64,9 +64,12 @@ def analyze_data():
         messagebox.showwarning("Input Error", "Please select both files.")
 
 def browse_file(var):
-    filename = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")])  or filedialog.askopenfilename(filetypes=[("Text files", "*.txt") , ("All files", "*.*")])
+    filetypes = [("All files", "*.*")]
     
+    filename = filedialog.askopenfilename(filetypes=filetypes)
     var.set(filename)
+
+
 def display_charts(relevance_percentage):
     for widget in chart_frame.winfo_children():
         widget.destroy()
@@ -198,4 +201,6 @@ chart_frame.pack(fill=tk.BOTH, expand=True)
 toggle_dark_mode()
 
 root.mainloop()
+
+
 

@@ -3,14 +3,29 @@ from tkinter import ttk, filedialog, messagebox
 from difflib import SequenceMatcher
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.patches import FancyBboxPatch
+import fitz  # PyMuPDF
 
 def read_file(filename):
     try:
-        with open(filename, 'r', encoding='utf-8') as file:
-            return file.read()
+        if filename.endswith('.pdf'):
+            text = read_pdf_file(filename)
+        else:
+            with open(filename, 'r', encoding='utf-8') as file:
+                text = file.read()
+        return text
     except Exception as e:
         messagebox.showerror("File Read Error", f"Error reading file {filename}: {e}")
+        return None
+
+def read_pdf_file(filename):
+    try:
+        doc = fitz.open(filename)
+        text = ""
+        for page in doc:
+            text += page.get_text()
+        return text
+    except Exception as e:
+        messagebox.showerror("PDF Read Error", f"Error reading PDF file {filename}: {e}")
         return None
 
 def calculate_relevance(text1, text2):
@@ -49,8 +64,11 @@ def analyze_data():
         messagebox.showwarning("Input Error", "Please select both files.")
 
 def browse_file(var):
-    filename = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])
+    filetypes = [("All files", "*.*")]
+    
+    filename = filedialog.askopenfilename(filetypes=filetypes)
     var.set(filename)
+
 
 def display_charts(relevance_percentage):
     for widget in chart_frame.winfo_children():
@@ -74,6 +92,7 @@ def display_charts(relevance_percentage):
 
     # Bar chart
     bar_figure = plt.Figure(figsize=(4, 3), dpi=100, facecolor=bg_color)
+    global bar_ax  # Ensure bar_ax is accessible in on_plot_hover
     bar_ax = bar_figure.add_subplot(111)
     labels = ['Relevance', 'Non-Relevance']
     rects = bar_ax.bar(labels, sizes, color=colors)
@@ -143,6 +162,7 @@ file2_var = tk.StringVar()
 file1_label = ttk.Label(frame, text="Select File 1:", background="#FFFFFF", foreground="#000000")
 file1_label.grid(row=0, column=0, sticky=tk.W, pady=(10, 5))
 
+
 file1_entry  = ttk.Entry(frame, textvariable=file1_var, state='readonly')
 file1_entry.grid(row=0, column=1, pady=(10, 5), padx=10, sticky=tk.EW)
 
@@ -165,10 +185,11 @@ file2_button.bind("<Leave>", on_leave)
 relevance_label = ttk.Label(frame, text="Relevance: ", style='TLabel', background="#FFFFFF", foreground="#000000")
 relevance_label.grid(row=2, columnspan=3, pady=(10, 5))
 
-analyze_button = ttk.Button(frame, text="Analyze", command=analyze_data, style='Light.TButton')
+analyze_button = ttk.Button(frame, text="Analyze", command=analyze_data, style='Light .TButton')
 analyze_button.grid(row=3, columnspan=3, pady=(5, 10), sticky=tk.EW)
 analyze_button.bind("<Enter>", on_enter)
 analyze_button.bind("<Leave>", on_leave)
+
 
 dark_mode_label = ttk.Label(frame, text="Dark Mode:", style='TLabel', background="#FFFFFF", foreground="#000000")
 dark_mode_label.grid(row=4, column=0, pady=(10, 5))
@@ -182,4 +203,6 @@ chart_frame.pack(fill=tk.BOTH, expand=True)
 toggle_dark_mode()
 
 root.mainloop()
+
+
 
