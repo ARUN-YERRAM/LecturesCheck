@@ -140,16 +140,9 @@ const UploadVideo = ({ onSubmit }) => {
           });
       };
     
-    //   const navigateToVideos = () => {
-    //     navigate(`/videos`, { state: { videos: allVideos } });
-    //   };
-
-
       const navigateToVideos = () => {
-        const url = `${BACKEND_URI}/api/v1/media`;
-        window.open(url, "_blank");  // Open videos in a new tab
-    };
-
+        navigate(`/videos`, { state: { videos: allVideos } });
+      };
     
       const getAllVideos = async () => {
         try {

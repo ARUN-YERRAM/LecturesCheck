@@ -143,15 +143,9 @@ const UploadPDF = () => {
 
 
 
-    // const navigateToLot = () => {
-    //     navigate(`/lot?pdfs=${JSON.stringify(allImage)}`);
-    //   };
-
     const navigateToLot = () => {
-        const url = `/lot?pdfs=${JSON.stringify(allImage)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-    };
-    
+        navigate(`/lot?pdfs=${JSON.stringify(allImage)}`);
+      };
     
     
     

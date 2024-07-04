@@ -91,14 +91,12 @@ import { useState,useEffect} from "react";
 // import Sidebar from "./Sidebar";
 import "./css/Uploadpdf.css";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+
 
 const UploadPDF = () => {
     const [title,setTitle] = useState('');
     const [file, setFile] = useState('');
     const[allImage,setAllImage] = useState(null);
-    const navigate = useNavigate();
-
 
     
 
@@ -133,27 +131,10 @@ const UploadPDF = () => {
         }
     };
 
-    // const showPdf=(pdf)=>{
-    //     window.open(`http://localhost:5000/api/files/${pdf}`,"_blank","noreferrer");
-    // }
+    const showPdf=(pdf)=>{
+        window.open(`http://localhost:5000/api/files/${pdf}`,"_blank","noreferrer");
+    }
 
-    // const showPdf = (pdf) => {
-    //     window.open(`http://localhost:5000/files/${pdf}`, "_blank", "noreferrer");
-    // };
-
-
-
-    // const navigateToLot = () => {
-    //     navigate(`/lot?pdfs=${JSON.stringify(allImage)}`);
-    //   };
-
-    const navigateToLot = () => {
-        const url = `/lot?pdfs=${JSON.stringify(allImage)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-    };
-    
-    
-    
     
 
     return ( 
@@ -172,21 +153,15 @@ const UploadPDF = () => {
                     <button className="btn btn-dark mt-3" type="submit">
                         Submit
                     </button>
-
-                    <button className="btn btn-primary" onClick={navigateToLot} style={{ marginLeft: "12px" }}>
-            View
-          </button>
                 </form>
-
-                
-                {/* <div className="uploaded">
+                <div className="uploaded">
                     <h4>Uploaded PDF:</h4>
                     <div className="output-div">
                         {allImage==null ? "" :allImage.map((data)=>{
                             return(
                                 <div className="inner-div">
                                     <h6>Titile: {data.title}</h6>
-                                    <button className="btn btn-dark" onClick={()=>showPdf(data.pdf)}>Show Pdf</button>
+                                    {/* <button className="btn btn-dark" onClick={()=>showPdf(data.pdf)}>Show Pdf</button> */}
 
                                     <button
                                         className="btn btn-primary"
@@ -198,7 +173,7 @@ const UploadPDF = () => {
                         })}
 
                     </div>
-                </div> */}
+                </div>
             </div>
          </>
      );

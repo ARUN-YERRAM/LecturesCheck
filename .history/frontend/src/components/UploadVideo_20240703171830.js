@@ -77,27 +77,21 @@ import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
 import "./css/Uploadpdf.css";
-import { useNavigate } from 'react-router-dom';
-const BACKEND_URI = "http://localhost:5000";
 
 const UploadVideo = ({ onSubmit }) => {
     const [Vtitle, VsetTitle] = useState('');
     const [Vfile, VsetFile] = useState('');
     const [VallImages, VsetAllImages] = useState(null);
 
-    const [videos, setVideos] = useState([]);
-    const [allVideos, setAllVideos] = useState(null);
-    const navigate = useNavigate();
+    useEffect(() => {
+        getVideo();
+    }, []);
 
-    // useEffect(() => {
-    //     getVideo();
-    // }, []);
-
-    // const getVideo = async () => {
-    //     const result = await axios.get("http://localhost:5000/api/getVideos");
-    //     console.log(result.data.data);
-    //     VsetAllImages(result.data.data);
-    // }
+    const getVideo = async () => {
+        const result = await axios.get("http://localhost:5000/api/getVideos");
+        console.log(result.data.data);
+        VsetAllImages(result.data.data);
+    }
 
     const submitImage = async (e) => {
         e.preventDefault();
@@ -112,63 +106,13 @@ const UploadVideo = ({ onSubmit }) => {
 
         if (result.data.status === "ok") {
             alert("Uploaded Successfully!!!");
-            // getVideo();
+            getVideo();
             onSubmit();  // Call the onSubmit prop here 
         }
     };
-    // const showVideo = (video) => {
-    //     window.open(`http://localhost:5000/api/videos/${video}`, "_blank", "noreferrer");
-    // }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        let formData = new FormData();
-        for (let key in videos) {
-          formData.append("videos", videos[key]);
-        }
-        // formData.append("name", name);
-    
-        axios
-          .post(`${BACKEND_URI}/api/v1/media/create`, formData)
-          .then((response) => {
-            getAllVideos();
-            alert("Submitted successfully");
-          })
-          .catch((error) => {
-            console.log(error);
-            alert("Error happened!");
-          });
-      };
-    
-    //   const navigateToVideos = () => {
-    //     navigate(`/videos`, { state: { videos: allVideos } });
-    //   };
-
-
-      const navigateToVideos = () => {
-        const url = `${BACKEND_URI}/api/v1/media`;
-        window.open(url, "_blank");  // Open videos in a new tab
-    };
-
-    
-      const getAllVideos = async () => {
-        try {
-          const result = await axios.get(`${BACKEND_URI}/api/v1/media`);
-          setAllVideos(result.data.data);
-        } catch (error) {
-          console.error('Error fetching videos:', error);
-        }
-      };
-    
-      useEffect(() => {
-        getAllVideos();
-      }, []);
-    
-
-    // const navigateToVideos = () => {
-    //     navigate(`/videos`, { state: { videos: allVideos } });
-    //   };
-    
+    const showVideo = (video) => {
+        window.open(`http://localhost:5000/api/videos/${video}`, "_blank", "noreferrer");
+    }
 
     // const showVideo = (video) => {
         // window.open(`http://localhost:5000/api/videos/${video}`, "_blank", "noreferrer");

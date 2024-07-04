@@ -6,13 +6,12 @@
  */
 
 
-/* Navbar styles */
+
+ /* Navbar styles */
 .custom-navbar {
     width: 100%;
     overflow-x: hidden;
     margin-left: 0;
-    background-color: #1a1a1a; /* Dark mode background */
-    color: #ffffff; /* Dark mode text color */
 }
 
 .custom-navbar .navbar-brand {
@@ -42,8 +41,8 @@ body {
 
 /* Dark mode */
 body.dark-mode {
-    background-color: #121212; /* Dark mode background */
-    color: #ffffff; /* Dark mode text color */
+    background-color: #333; /* Dark mode background */
+    color: #f0f0f0; /* Dark mode text color */
 }
 
 /* Add any additional styles for dark mode */

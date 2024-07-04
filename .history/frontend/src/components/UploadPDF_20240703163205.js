@@ -137,21 +137,15 @@ const UploadPDF = () => {
     //     window.open(`http://localhost:5000/api/files/${pdf}`,"_blank","noreferrer");
     // }
 
-    // const showPdf = (pdf) => {
-    //     window.open(`http://localhost:5000/files/${pdf}`, "_blank", "noreferrer");
-    // };
+    const showPdf = (pdf) => {
+        window.open(`http://localhost:5000/files/${pdf}`, "_blank", "noreferrer");
+    };
 
 
-
-    // const navigateToLot = () => {
-    //     navigate(`/lot?pdfs=${JSON.stringify(allImage)}`);
-    //   };
 
     const navigateToLot = () => {
-        const url = `/lot?pdfs=${JSON.stringify(allImage)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-    };
-    
+        navigate(`/lot?pdfs=${JSON.stringify(allImage)}`);
+      };
     
     
     
