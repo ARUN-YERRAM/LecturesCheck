@@ -46,5 +46,3 @@ if _name_ == '_main_':
     # Ensure the Flask app runs in a separate thread to avoid blocking TensorFlow operations
     from werkzeug.serving import run_simple
     run_simple('localhost', 6000, app)
-
-
