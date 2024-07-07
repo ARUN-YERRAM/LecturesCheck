@@ -1,1 +1,0 @@
-export const BACKEND_UR = "http://localhost:4000";
