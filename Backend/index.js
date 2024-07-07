@@ -34,6 +34,13 @@ app.use("/",async(req,res)=>{
 ////////////////////////
 //////////////////////////////////////////////////////////////
 
+app.get('/api/similarity-scores', (req, res) => {
+    if(similarity == 0){
+        similarity = 30;
+    }
+    res.json(similarity);
+});
+
 
 
 
