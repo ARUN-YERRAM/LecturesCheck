@@ -18,8 +18,8 @@ def calculate_use_similarity(text1, text2):
     embeddings = model([text1, text2])
     similarity = 1 - cosine(embeddings[0].numpy(), embeddings[1].numpy())
     print("Reached llm")
-    print(similarity)
-    return similarity
+    print(similarity*100)
+    return similarity*100
 
 # Function to read text from a file
 def read_text_from_file(file_path):

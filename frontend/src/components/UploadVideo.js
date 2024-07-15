@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Uploadpdf.css";
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
 const BACKEND_URI = "http://localhost:5000";
@@ -25,13 +25,13 @@ const UploadVideo = ({ onSubmit }) => {
             });
 
             if (result.data.status === "ok") {
-                toast.success("Uploaded Successfully!!!");
+                // toast.success("Uploaded Successfully!!!");
                 onSubmit();  // Call the onSubmit prop here 
                 getAllVideos();
             }
         } catch (error) {
             console.error("Error uploading video:", error);
-            toast.error("Error uploading video.");
+            // toast.error("Error uploading video.");
         }
     };
 
@@ -41,7 +41,7 @@ const UploadVideo = ({ onSubmit }) => {
             setAllVideos(result.data.data);
         } catch (error) {
             console.error('Error fetching videos:', error);
-            toast.error('Error fetching videos.');
+            // toast.error('Error fetching videos.');
         }
     };
     useEffect(() => {
@@ -88,7 +88,7 @@ const UploadVideo = ({ onSubmit }) => {
                 
                 <button className="btn btn-dark mt-3" type="submit">Submit</button>
                 <button
-                    className="btn btn-primary mt-5"
+                    className="btn btn-primary mt-3"
                     onClick={navigateToVideos}
                     style={{ marginLeft: "12px" }}
                 >

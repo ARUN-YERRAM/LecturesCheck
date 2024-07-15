@@ -217,7 +217,7 @@
 
 
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./css/Uploadpdf.css";
@@ -293,7 +293,7 @@ const UploadPDF = () => {
             required
             onChange={(e) => setFile(e.target.files[0])}
           />
-          <button className="btn btn-dark mt-3" type="submit">
+          <button className="btn btn-dark mt-3" type="submit"  style={{ marginLeft: "12px" }}>
             Submit
           </button>
           <button className="btn btn-dark mt-3" type="button" onClick={navigateToPdfList}>
