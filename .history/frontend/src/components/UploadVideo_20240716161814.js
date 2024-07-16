@@ -1,0 +1,331 @@
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import "./css/Uploadpdf.css";
+// import { useNavigate } from 'react-router-dom';
+// // import { ToastContainer, toast } from 'react-toastify';
+// // import 'react-toastify/dist/ReactToastify.css';
+
+// const BACKEND_URI = "http://localhost:5000";
+
+// const UploadVideo = ({ onSubmit }) => {
+//     const [Vtitle, VsetTitle] = useState('');
+//     const [Vfile, VsetFile] = useState(null);
+//     const [allVideos, setAllVideos]  = useState(null);
+//     const navigate = useNavigate();
+
+
+//     const submitImage = async (e) => {
+//         e.preventDefault();
+//         const formData = new FormData();
+//         formData.append("title", Vtitle);
+//         formData.append("file", Vfile);
+
+//         try {
+//             const result = await axios.post(`${BACKEND_URI}/api/Uploadvideos`, formData, {
+//                 headers: { "Content-Type": "multipart/form-data" },
+//             });
+
+//             if (result.data.status === "ok") {
+//                 // toast.success("Uploaded Successfully!!!");
+//                 onSubmit();  // Call the onSubmit prop here 
+//                 getAllVideos();
+//             }
+//         } catch (error) {
+//             console.error("Error uploading video:", error);
+//             // toast.error("Error uploading video.");
+//         }
+//     };
+
+//     const getAllVideos = async () => {
+//         try {
+//             const result = await axios.get(`${BACKEND_URI}/api/v1/media`);
+//             setAllVideos(result.data.data);
+//         } catch (error) {
+//             console.error('Error fetching videos:', error);
+//             // toast.error('Error fetching videos.');
+//         }
+//     };
+//     useEffect(() => {
+//         getAllVideos();
+//     }, []);
+
+    
+//     const navigateToVideos = () => {
+//         // const url = `${BACKEND_URI}/api/getVideos`;
+//         window.open("/videos", "_blank");
+//     };
+
+//     // const navigateToPdfList = () => {
+//       // window.open("/lot", "_blank");
+//     // };
+  
+  
+
+//     return (
+//         <div className="uploadpdf">
+//             {/* <ToastContainer /> */}
+//             <form className="pdfform" onSubmit={submitImage}>
+//                 <h4>Upload Video</h4>
+//                 <label htmlFor="title">Title:</label>
+//                 {/* <input
+//                     type="text"
+//                     className="form-control pt-2 mt-2"
+//                     onChange={(e) => VsetTitle(e.target.value)}
+//                     placeholder="Title"
+//                     id="title"
+//                     required
+//                 />
+//                 <input
+//                     type="file"
+//                     className="form-control mt-4"
+//                     id="file"
+//                     accept="video/mp4,video/mpeg"
+//                     required
+//                     onChange={(e) => VsetFile(e.target.files[0])}
+//                 /> */}
+ 
+// <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
+// <input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
+                
+//                 <button className="btn btn-dark mt-3" type="submit">Submit</button>
+//                 <button
+//                     className="btn btn-primary mt-3"
+//                     onClick={navigateToVideos}
+//                     style={{ marginLeft: "12px" }}
+//                 >
+//                     View
+//                 </button>
+//             </form>            
+//         </div>
+//     );
+// };
+// export default UploadVideo;
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import "./css/Uploadpdf.css";
+// import { useNavigate } from 'react-router-dom';
+// // import { ToastContainer, toast } from 'react-toastify';
+// // import 'react-toastify/dist/ReactToastify.css';
+
+// const BACKEND_URI = "http://localhost:5000";
+
+// const UploadVideo = ({ onSubmit }) => {
+//     const [Vtitle, VsetTitle] = useState('');
+//     const [Vfile, VsetFile] = useState(null);
+//     const [allVideos, setAllVideos]  = useState(null);
+//     const [isLoading, setIsLoading] = useState(false); // Add loading state
+//     const navigate = useNavigate();
+
+//     const submitImage = async (e) => {
+//         e.preventDefault();
+//         setIsLoading(true); // Set loading to true when submitting
+
+//         const formData = new FormData();
+//         formData.append("title", Vtitle);
+//         formData.append("file", Vfile);
+
+//         try {
+//             const result = await axios.post(`${BACKEND_URI}/api/Uploadvideos`, formData, {
+//                 headers: { "Content-Type": "multipart/form-data" },
+//             });
+
+//             if (result.data.status === "ok") {
+//                 // toast.success("Uploaded Successfully!!!");
+//                 onSubmit();  // Call the onSubmit prop here 
+//                 getAllVideos();
+//             }
+//         } catch (error) {
+//             console.error("Error uploading video:", error);
+//             // toast.error("Error uploading video.");
+//         } finally {
+//             setIsLoading(false); // Set loading to false after submission
+//         }
+//     };
+
+//     const getAllVideos = async () => {
+//         try {
+//             const result = await axios.get(`${BACKEND_URI}/api/v1/media`);
+//             setAllVideos(result.data.data);
+//         } catch (error) {
+//             console.error('Error fetching videos:', error);
+//             // toast.error('Error fetching videos.');
+//         }
+//     };
+//     useEffect(() => {
+//         getAllVideos();
+//     }, []);
+
+    
+//     const navigateToVideos = () => {
+//         // const url = `${BACKEND_URI}/api/getVideos`;
+//         window.open("/videos", "_blank");
+//     };
+
+//     // const navigateToPdfList = () => {
+//       // window.open("/lot", "_blank");
+//     // };
+  
+//     return (
+//         <div className="uploadpdf">
+//             {/* <ToastContainer /> */}
+//             <form className="pdfform" onSubmit={submitImage}>
+//                 <h4>Upload Video</h4>
+//                 <label htmlFor="title">Title:</label>
+//                 {/* <input
+//                     type="text"
+//                     className="form-control pt-2 mt-2"
+//                     onChange={(e) => VsetTitle(e.target.value)}
+//                     placeholder="Title"
+//                     id="title"
+//                     required
+//                 />
+//                 <input
+//                     type="file"
+//                     className="form-control mt-4"
+//                     id="file"
+//                     accept="video/mp4,video/mpeg"
+//                     required
+//                     onChange={(e) => VsetFile(e.target.files[0])}
+//                 /> */}
+
+// {/* <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
+// <input type="file" className="form-control mt-4" id="file" accept="video/mp4,video/mpeg" required onChange={(e) => VsetFile(e.target.files[0])} /> */}
+
+// <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
+//  <input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
+//                 <button
+//                     className="btn btn-dark mt-3"
+//                     type="submit"
+//                     disabled={isLoading} // Disable the button when loading
+//                 >
+//                     {isLoading ? (
+//                         <span className="loading-animation">Uploading...</span>
+//                     ) : (
+//                         "Submit"
+//                     )}
+//                 </button>
+//                 <button
+//                     className="btn btn-primary mt-3"
+//                     onClick={navigateToVideos}
+//                     style={{ marginLeft: "12px" }}
+//                 >
+//                     View
+//                 </button>
+//             </form>            
+//         </div>
+//     );
+// };
+// export default UploadVideo;
+
+
+
+
+
+import { useState, useEffect } from "react";
+import React from "react";
+import axios from "axios";
+import "./css/Uploadpdf.css";
+
+const UploadVideo = ({ onSubmit }) => {
+  const [Vtitle, VsetTitle] = useState('');
+  const [Vfile, VsetFile] = useState('');
+  const [VallImages, VsetAllImages] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getVideo();
+  }, []);
+
+  const getVideo = async () => {
+    const result = await axios.get("http://localhost:5000/api/getVideos");
+    console.log(result.data.data);
+    VsetAllImages(result.data.data);
+  };
+
+  const submitImage = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formdata = new FormData();
+    formdata.append("title", Vtitle);
+    formdata.append("file", Vfile);
+    console.log(Vtitle, Vfile);
+    console.log("sending video");
+    try {
+      const result = await axios.post("http://localhost:5000/api/uploadvideos", formdata, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log("video has been sent ");
+      console.log(result);
+
+      if (result.data.status === "ok") {
+        alert("Uploaded Successfully!!!");
+        getVideo();
+        onSubmit(); // Call the onSubmit prop here
+      }
+    } catch (error) {
+      console.error("Error uploading video:", error);
+    }
+    setLoading(false);
+  };
+
+  const showVideo = (video) => {
+    window.open(http://localhost:5000/api/videos/${video}, "_blank", "noreferrer");
+  };
+
+  return (
+    <div className="uploadpdf">
+      <form className="pdfform" onSubmit={submitImage}>
+        <h4>Upload Video</h4>
+        <label htmlFor="title">Title:</label>
+        <input
+          type="text"
+          className="form-control pt-2 mt-2"
+          onChange={(e) => VsetTitle(e.target.value)}
+          placeholder="Title"
+          id="title"
+          required
+        />
+        <input
+          type="file"
+          className="form-control mt-4"
+          id="file"
+          accept="video/mp4,video/mp3"
+          required
+          onChange={(e) => VsetFile(e.target.files[0])}
+        />
+        <button className="btn btn-dark mt-3" type="submit" disabled={loading}>
+          {loading ? "Wait..." : "Submit"}
+        </button>
+      </form>
+      {loading && (
+        <div className="loading-bar">
+          <div className="loading-progress"></div>
+        </div>
+      )}
+      {/* <div className="uploaded">
+        <h4>Uploaded Video:</h4>
+        <div className="output-div">
+          {VallImages == null
+            ? ""
+            : VallImages.map((data) => (
+                <div className="inner-div" key={data.title}>
+                  <h6>Title: {data.title}</h6>
+                  <button className="btn btn-dark" onClick={() => showVideo(data.video)}>
+                    Show Video
+                  </button>
+                </div>
+              ))}
+        </div> */}
+      {/* </div> */}
+    </div>
+  );
+};
+
+export default UploadVideo;

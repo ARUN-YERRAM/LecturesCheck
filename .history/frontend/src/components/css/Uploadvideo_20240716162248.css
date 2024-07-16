@@ -1,0 +1,79 @@
+.uploadvideo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    flex-direction: column;
+}
+
+.videoform {
+    padding: 50px;
+    border: 1px solid black;
+    width: 30%;
+    text-align: center;
+}
+
+.form-control {
+    border-color: black !important;
+}
+
+
+/* UploadVideo.css */
+
+.loading-animation {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 24px;
+}
+
+.loading-animation::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: #333;
+    animation: loading-animation 1s linear infinite;
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+
+}
+
+
+.loading-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 4px;
+  }
+  
+  .loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #08325d;
+    animation: loading 40s infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 50%;
+    }
+    100% {
+      width: 100%;
+    }
+  }

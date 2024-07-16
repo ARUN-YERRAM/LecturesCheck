@@ -276,23 +276,6 @@ allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => 
     }
 });
 
-
-allroutes.get('/calculate_similarity', async (req, res) => {
-
-    try {
-        const similarity = req.app.locals.similarity; // Ensure this has the correct value
-        console.log('Similarity score:', similarity); // Debugging line
-        if (similarity !== undefined) {
-            res.json({ similarity });
-        } else {
-            res.status(404).json({ error: 'Similarity score not found' });
-        }
-    } catch (error) {
-        console.error('Error fetching similarity score:', error);
-        res.status(500).json({ error: 'Failed to fetch similarity score' });
-    }
-});
-
 allroutes.get("/getvideos", async (req, res) => {
     try {
         Video.find({}).then((data) => {

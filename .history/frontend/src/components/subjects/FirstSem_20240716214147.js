@@ -55,7 +55,7 @@ const FirstSem = () => {
                                 <li><h5>Analog and Digital Electronics</h5></li>
                                 <li><p>Please click on the button to upload the Notes</p></li>
 
-                                <button className="btn button mt-1 " style={{ backgroundColor: customPrimaryColor, color: "white" }} onClick={hangleNextPage2} >Upload</button>
+                                <button className="btn button mt-1 " style={{ backgroundColor: customPrimaryColor, color: "white" }} onClick={hangleNextPage2} >click</button>
                             </ul>
                         </div>
                     </div>

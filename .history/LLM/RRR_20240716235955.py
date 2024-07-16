@@ -26,7 +26,7 @@ def read_text_from_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
-@app.route('/calculate_similarity', methods=['POST'])
+@app.route('api/calculate_similarity', methods=['POST'])
 def calculate_similarity():
     # Get the text files from the request
     file1 = request.files['file1']
@@ -45,4 +45,4 @@ def calculate_similarity():
 if __name__ == '__main__':
     # Ensure the Flask app runs in a separate thread to avoid blocking TensorFlow operations
     from werkzeug.serving import run_simple
-    run_simple('localhost', 5000, app)
+    run_simple('localhost', 6000, app)

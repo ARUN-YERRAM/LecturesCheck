@@ -45,4 +45,4 @@ def calculate_similarity():
 if __name__ == '__main__':
     # Ensure the Flask app runs in a separate thread to avoid blocking TensorFlow operations
     from werkzeug.serving import run_simple
-    run_simple('localhost', 5000, app)
+    run_simple('localhost', 3000, app)

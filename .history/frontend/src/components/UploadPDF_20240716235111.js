@@ -272,7 +272,7 @@ const UploadPDF = () => {
   };
 
   const navigateToGraph = () => {
-    window.open("/RelevanceChart","_blank");
+    navigate("/RelevanceChart");
   };
 
   return (
@@ -302,11 +302,11 @@ const UploadPDF = () => {
             Submit
           </button>
 
-          <button className="btn btn-dark mt-3" type="button" style={{ marginLeft: "12px" }} onClick={navigateToPdfList}>
+          <button className="btn btn-dark mt-3" type="button" style={{ marginLeft: "12px" }}onClick={navigateToPdfList}>
             View PDFs
           </button>
 
-          <button className="btn btn-dark mt-3" type="button" style={{ marginLeft: "12px" }} onClick={navigateToGraph}>
+          <button className="btn btn-dark mt-3" type="button" onClick={navigateToGraph}>
             GRAPH
           </button>
 

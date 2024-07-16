@@ -1,0 +1,46 @@
+.uploadvideo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    flex-direction: column;
+}
+
+.videoform {
+    padding: 50px;
+    border: 1px solid black;
+    width: 30%;
+    text-align: center;
+}
+
+.form-control {
+    border-color: black !important;
+}
+
+.loading-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 4px;
+  }
+  
+  .loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #08325d;
+    animation: loading 40s infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 50%;
+    }
+    100% {
+      width: 100%;
+    }
+  }

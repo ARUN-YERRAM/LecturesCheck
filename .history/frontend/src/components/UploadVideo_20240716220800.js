@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/Uploadpdf.css";
 import { useNavigate } from 'react-router-dom';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 
 const BACKEND_URI = "http://localhost:5000";
 
@@ -27,8 +25,9 @@ const UploadVideo = ({ onSubmit }) => {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
+            console.log(result.data);
             if (result.data.status === "ok") {
-                // toast.success("Uploaded Successfully!!!");
+                alert("Uploaded Successfully!");
                 onSubmit();  // Call the onSubmit prop here 
                 getAllVideos();
             }
@@ -42,7 +41,7 @@ const UploadVideo = ({ onSubmit }) => {
 
     const getAllVideos = async () => {
         try {
-            const result = await axios.get(`${BACKEND_URI}/api/v1/media`);
+            const result = await axios.get(`${BACKEND_URI}/api/getVideos`);
             setAllVideos(result.data.data);
         } catch (error) {
             console.error('Error fetching videos:', error);
@@ -59,36 +58,12 @@ const UploadVideo = ({ onSubmit }) => {
         window.open("/videos", "_blank");
     };
 
-    // const navigateToPdfList = () => {
-      // window.open("/lot", "_blank");
-    // };
-  
     return (
         <div className="uploadpdf">
             {/* <ToastContainer /> */}
             <form className="pdfform" onSubmit={submitImage}>
                 <h4>Upload Video</h4>
                 <label htmlFor="title">Title:</label>
-                {/* <input
-                    type="text"
-                    className="form-control pt-2 mt-2"
-                    onChange={(e) => VsetTitle(e.target.value)}
-                    placeholder="Title"
-                    id="title"
-                    required
-                />
-                <input
-                    type="file"
-                    className="form-control mt-4"
-                    id="file"
-                    accept="video/mp4,video/mpeg"
-                    required
-                    onChange={(e) => VsetFile(e.target.files[0])}
-                /> */}
-
-{/* <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
-<input type="file" className="form-control mt-4" id="file" accept="video/mp4,video/mpeg" required onChange={(e) => VsetFile(e.target.files[0])} /> */}
-
 <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
  <input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
                 <button

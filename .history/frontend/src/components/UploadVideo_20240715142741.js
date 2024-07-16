@@ -11,13 +11,11 @@ const UploadVideo = ({ onSubmit }) => {
     const [Vtitle, VsetTitle] = useState('');
     const [Vfile, VsetFile] = useState(null);
     const [allVideos, setAllVideos]  = useState(null);
-    const [isLoading, setIsLoading] = useState(false); // Add loading state
     const navigate = useNavigate();
+
 
     const submitImage = async (e) => {
         e.preventDefault();
-        setIsLoading(true); // Set loading to true when submitting
-
         const formData = new FormData();
         formData.append("title", Vtitle);
         formData.append("file", Vfile);
@@ -35,8 +33,6 @@ const UploadVideo = ({ onSubmit }) => {
         } catch (error) {
             console.error("Error uploading video:", error);
             // toast.error("Error uploading video.");
-        } finally {
-            setIsLoading(false); // Set loading to false after submission
         }
     };
 
@@ -63,6 +59,8 @@ const UploadVideo = ({ onSubmit }) => {
       // window.open("/lot", "_blank");
     // };
   
+  
+
     return (
         <div className="uploadpdf">
             {/* <ToastContainer /> */}
@@ -85,23 +83,11 @@ const UploadVideo = ({ onSubmit }) => {
                     required
                     onChange={(e) => VsetFile(e.target.files[0])}
                 /> */}
-
-{/* <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
-<input type="file" className="form-control mt-4" id="file" accept="video/mp4,video/mpeg" required onChange={(e) => VsetFile(e.target.files[0])} /> */}
-
+ 
 <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
- <input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
-                <button
-                    className="btn btn-dark mt-3"
-                    type="submit"
-                    disabled={isLoading} // Disable the button when loading
-                >
-                    {isLoading ? (
-                        <span className="loading-animation">Uploading...</span>
-                    ) : (
-                        "Submit"
-                    )}
-                </button>
+<input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
+                
+                <button className="btn btn-dark mt-3" type="submit">Submit</button>
                 <button
                     className="btn btn-primary mt-3"
                     onClick={navigateToVideos}
@@ -113,4 +99,6 @@ const UploadVideo = ({ onSubmit }) => {
         </div>
     );
 };
+
+
 export default UploadVideo;

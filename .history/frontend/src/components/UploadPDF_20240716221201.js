@@ -271,10 +271,6 @@ const UploadPDF = () => {
     window.open("/lot", "_blank");
   };
 
-  const navigateToGraph = () => {
-    window.open("/RelevanceChart","_blank");
-  };
-
   return (
     <>
       <div className="uploadpdf">
@@ -297,19 +293,12 @@ const UploadPDF = () => {
             required
             onChange={(e) => setFile(e.target.files[0])}
           />
-
           <button className="btn btn-dark mt-3" type="submit"  style={{ marginLeft: "12px" }}>
             Submit
           </button>
-
           <button className="btn btn-dark mt-3" type="button" style={{ marginLeft: "12px" }} onClick={navigateToPdfList}>
             View PDFs
           </button>
-
-          <button className="btn btn-dark mt-3" type="button" style={{ marginLeft: "12px" }} onClick={navigateToGraph}>
-            GRAPH
-          </button>
-
         </form>
       </div>
     </>
