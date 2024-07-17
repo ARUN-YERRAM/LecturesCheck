@@ -4,7 +4,7 @@ import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import UploadPDF from './components/UploadPDF';
 import Lot from './components/Lot';
-import Videos from './components/VideosList'; // Assuming you have a Videos component
+import Videos from './components/VideosList'; 
 import UploadVideo from './components/UploadVideo';
 import FirstSem from './components/subjects/FirstSem';
 import SecondSem from './components/subjects/SecondSem';
@@ -41,7 +41,7 @@ function App() {
         <Route path='/unit3' element={<Unit3 />} />
         <Route path='/unit4' element={<Unit4 />} />
         <Route path='/unit5' element={<Unit5 />} />
-        <Route path='api/RelevanceChart' element={<RelevanceChart />} />
+        <Route path='/RelevanceChart' element={<RelevanceChart />} />
       </Routes>
     </div>
     </DarkModeProvider> 

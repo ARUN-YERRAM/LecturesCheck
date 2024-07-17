@@ -19,7 +19,7 @@ def calculate_use_similarity(text1, text2):
     embeddings = model([text1, text2])
     similarity = 1 - cosine(embeddings[0].numpy(), embeddings[1].numpy())
     print("Reached llm")
-    print(similarity)
+    print(similarity*100)
     return similarity
 
 # Function to read text from a file
@@ -39,7 +39,7 @@ def calculate_similarity():
 
     # Calculate similarity
     similarity = calculate_use_similarity(text1, text2)
-    print("return similarity: ", similarity)
+    print("return similarity: ", similarity*100)
     # Send the similarity score back
     return jsonify({'similarity': similarity})
 

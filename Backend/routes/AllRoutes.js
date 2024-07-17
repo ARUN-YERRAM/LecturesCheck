@@ -1,3 +1,4 @@
+
 const express = require("express");
 require('dotenv').config();
 const { User, Pdf, Video } = require("../Models/AllSchema");
@@ -5,19 +6,18 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const PDFParser = require("pdf-parse");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const ffmpeg = require("fluent-ffmpeg");
 const axios = require("axios");
 const FormData = require("form-data");
-const allroutes = express.Router();
 
+const allroutes = express.Router();
 
 allroutes.use(express.json());
 allroutes.use("/files", express.static("files"));
 allroutes.use("/videos", express.static("videos"));
 
-ffmpeg.setFfmpegPath('C:/ffmpeg/ffmpeg-master-latest-win64-gpl/ffmpeg.exe'); // Adjust the path as needed); // Adjust the path as needed
-
+ffmpeg.setFfmpegPath('C://ffmpeg/ffmpeg-master-latest-win64-gpl/ffmpeg.exe'); // Adjust the path as needed
 const convertPdfToText = async (pdfPath) => {
     try {
         const dataBuffer = fs.readFileSync(pdfPath);
@@ -59,9 +59,7 @@ const convertVideoToAudio = (inputVideo, outputAudio) => {
     });
 };
 
-
 const assemblyaiKey = process.env.ASSEMBLYAI_KEY;
-
 const uploadAudioToAssemblyAI = async (filePath) => {
     const formData = new FormData();
     formData.append("audio", fs.createReadStream(filePath));
@@ -133,11 +131,6 @@ const sendFilesToFlaskServer = async (pdfTextFilePath, videoTextFilePath, endpoi
     }
 };
 
-// allroutes.get("/", (req, res) => {
-//     console.log("reached root");
-//     res.send("welcome to dune lms");
-// });
-
 // Login route
 allroutes.post("/login", async (req, res) => {
     console.log("reached login");
@@ -194,14 +187,16 @@ allroutes.post("/uploadfiles", upload.single("file"), async (req, res) => {
         const outputTextFilePath = path.join(__dirname, "..", "files", outputTextFileName);
         const text = await convertPdfToText(pdfPath);
         await writeFile(outputTextFilePath, text);
-
+        
         req.app.locals.pdfTextFilePath = outputTextFilePath;
 
         // Check if both files are available for sending to Flask server
+        let a=60;
         if (req.app.locals.videoTextFilePath) {
             const similarity = await sendFilesToFlaskServer(req.app.locals.pdfTextFilePath, req.app.locals.videoTextFilePath, "calculate_similarity");
+            req.app.locals.similarity=similarity*100;
             res.json({ status: "ok", similarity: similarity });
-            console.log("similarity:" , similarity);
+            console.log("similarity:", similarity*100);
         } else {
             res.json({ status: "ok", message: "PDF uploaded and processed" });
         }
@@ -210,6 +205,8 @@ allroutes.post("/uploadfiles", upload.single("file"), async (req, res) => {
         res.status(500).json({ status: "error", message: "Failed to upload file" });
     }
 });
+
+
 
 allroutes.get("/getfiles", async (req, res) => {
     try {
@@ -222,12 +219,11 @@ allroutes.get("/getfiles", async (req, res) => {
     }
 });
 
-
 // Video upload and retrieval routes
 const uploadStorage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./videos");
-        console.log("You reached backend video file");
+        console.log("u reached backend video file");
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now();
@@ -237,8 +233,9 @@ const uploadStorage = multer.diskStorage({
 });
 
 const uploadVideo = multer({ storage: uploadStorage });
-
 allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => {
+    
+
     console.log(req.file);
     const title = req.body.title;
     const fileName = req.file.filename;
@@ -264,8 +261,9 @@ allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => 
         // Check if both files are available for sending to Flask server
         if (req.app.locals.pdfTextFilePath) {
             const similarity = await sendFilesToFlaskServer(req.app.locals.pdfTextFilePath, req.app.locals.videoTextFilePath, "calculate_similarity");
+            req.app.locals.similarity= similarity*100; 
             res.json({ status: "ok", similarity: similarity });
-            console.log("similarity : ", similarity);
+            console.log("similarity:", similarity*100);
         } else {
             res.json({ status: "ok", message: "Video uploaded and processed" });
         }
@@ -276,7 +274,7 @@ allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => 
 });
 
 
-allroutes.get('/api/calculate_similarity', async (req, res) => {
+allroutes.get('/calculate_similarity', async (req, res) => {
 
     try {
         const similarity = req.app.locals.similarity; // Ensure this has the correct value
@@ -304,4 +302,5 @@ allroutes.get("/getvideos", async (req, res) => {
 });
 
 module.exports = allroutes;
+
 

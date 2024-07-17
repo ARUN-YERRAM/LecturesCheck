@@ -10,7 +10,7 @@ async function deleteAllDocuments() {
     console.log("Connected to MongoDB Atlas");
 
     const database = client.db('LECTURESCHECK');
-    const collection = database.collection('pdfdetails'); 
+    const collection = database.collection('videos'); 
     
     const result = await collection.deleteMany({});
     console.log(`${result.deletedCount} document(s) were deleted.`);

@@ -18,11 +18,9 @@ const Unit1 = () => {
             <div>
                    {isVideoUploaded ? <UploadPDF/> : <UploadVideo onSubmit={handelVideoSubmit}/> }
             </div>
-        
+         
            
-            
-            
-       </>
+    </>
     );
 }
 

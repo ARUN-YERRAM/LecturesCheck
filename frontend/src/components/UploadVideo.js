@@ -59,35 +59,12 @@ const UploadVideo = ({ onSubmit }) => {
         window.open("/videos", "_blank");
     };
 
-    // const navigateToPdfList = () => {
-      // window.open("/lot", "_blank");
-    // };
-
     return (
         <div className="uploadpdf">
             {/* <ToastContainer /> */}
             <form className="pdfform" onSubmit={submitImage}>
                 <h4>Upload Video</h4>
                 <label htmlFor="title">Title:</label>
-                {/* <input
-                    type="text"
-                    className="form-control pt-2 mt-2"
-                    onChange={(e) => VsetTitle(e.target.value)}
-                    placeholder="Title"
-                    id="title"
-                    required
-                />
-                <input
-                    type="file"
-                    className="form-control mt-4"
-                    id="file"
-                    accept="video/mp4,video/mpeg"
-                    required
-                    onChange={(e) => VsetFile(e.target.files[0])}
-                /> */}
-
-{/* <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
-<input type="file" className="form-control mt-4" id="file" accept="video/mp4,video/mpeg" required onChange={(e) => VsetFile(e.target.files[0])} /> */}
 
 <input type="text" className="form-control pt-2 mt-2 " onChange={(e) => VsetTitle(e.target.value)} placeholder="Title" id="title" required />
  <input type="file" className="form-control mt-4" id="file" accept="mp4/mp3" required onChange={(e) => VsetFile(e.target.files[0])} />
