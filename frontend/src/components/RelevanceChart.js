@@ -14,11 +14,11 @@ const RelevanceChart = () => {
     const fetchScores = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/calculate_similarity');
-        console.log(response.data); // Debugging line
+        // console.log(response.data); // Debugging line
         setScores(response.data.similarity);
       } catch (error) {
         setError('There was an error fetching the similarity scores!');
-        console.error(error);
+        // console.error(error);
       }
     };
 

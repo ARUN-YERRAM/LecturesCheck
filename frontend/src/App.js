@@ -17,17 +17,20 @@ import Unit5 from './components/Units/Unit5';
 import ADE from './components/subjects/Subject/ADE';
 import IML from './components/subjects/Subject/IML';
 import RelevanceChart from './components/RelevanceChart';
+import { DarkModeProvider} from'./components/DarkModeContext';
 
 function App() {
   return (
+    <DarkModeProvider>
     <div className="App">
+
       <Routes>
         <Route path='/' element={<LoginForm />} />
         <Route path='/home' element={<Home />} />
         <Route path='/uploadpdf' element={<UploadPDF />} />
         <Route path='/lot' element={<Lot />} />
         <Route path='/uploadvideo' element={<UploadVideo />} />
-        <Route path='/videos' element={<Videos />} /> {/* Adjusted to match your component */}
+        <Route path='/videos' element={<Videos />} /> 
         <Route path='/firstsem' element={<FirstSem />} />
         <Route path='/secondsem' element={<SecondSem />} />
         <Route path='/coa' element={<COA />} />
@@ -38,9 +41,10 @@ function App() {
         <Route path='/unit3' element={<Unit3 />} />
         <Route path='/unit4' element={<Unit4 />} />
         <Route path='/unit5' element={<Unit5 />} />
-        <Route path='/RelevanceChart' element={<RelevanceChart />} />
+        <Route path='api/RelevanceChart' element={<RelevanceChart />} />
       </Routes>
     </div>
+    </DarkModeProvider> 
   );
 }
 

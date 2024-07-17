@@ -272,7 +272,7 @@ const UploadPDF = () => {
   };
 
   const navigateToGraph = () => {
-    window.open("/RelevanceChart","_blank");
+    window.open("/api/RelevanceChart");
   };
 
   return (

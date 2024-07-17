@@ -9,9 +9,8 @@ const bcrypt = require("bcrypt");
 const ffmpeg = require("fluent-ffmpeg");
 const axios = require("axios");
 const FormData = require("form-data");
-
-
 const allroutes = express.Router();
+
 
 allroutes.use(express.json());
 allroutes.use("/files", express.static("files"));
@@ -134,10 +133,10 @@ const sendFilesToFlaskServer = async (pdfTextFilePath, videoTextFilePath, endpoi
     }
 };
 
-allroutes.get("/", (req, res) => {
-    console.log("reached root");
-    res.send("welcome to dune lms");
-});
+// allroutes.get("/", (req, res) => {
+//     console.log("reached root");
+//     res.send("welcome to dune lms");
+// });
 
 // Login route
 allroutes.post("/login", async (req, res) => {
@@ -266,7 +265,7 @@ allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => 
         if (req.app.locals.pdfTextFilePath) {
             const similarity = await sendFilesToFlaskServer(req.app.locals.pdfTextFilePath, req.app.locals.videoTextFilePath, "calculate_similarity");
             res.json({ status: "ok", similarity: similarity });
-        
+            console.log("similarity : ", similarity);
         } else {
             res.json({ status: "ok", message: "Video uploaded and processed" });
         }
@@ -277,7 +276,7 @@ allroutes.post("/uploadvideos", uploadVideo.single("file"), async (req, res) => 
 });
 
 
-allroutes.get('/calculate_similarity', async (req, res) => {
+allroutes.get('/api/calculate_similarity', async (req, res) => {
 
     try {
         const similarity = req.app.locals.similarity; // Ensure this has the correct value
